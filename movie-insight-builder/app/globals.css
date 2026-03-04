@@ -1,1 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap");
 @import "tailwindcss";
+
+
+@theme {
+  /* color Palette */
+  --color-void:      #05050D;
+  --color-deep:      #08081A;
+  --color-surface:   #0C0C1E;
+  --color-elevated:  #111128;
+  --color-rim:       #1E1E38;
+  --color-rimhover:  #2A2A48;
+
+  --color-gold:      #D4A843;
+  --color-golddim:   #A8832F;
+  --color-goldfaint: #D4A84318;
+
+  --color-iris:      #6B7FD4;
+  --color-irisfaint: #6B7FD418;
+
+  --color-chalk:     #D8D8EE;
+  --color-silver:    #9898BC;
+  --color-slate:     #5A5A80;
+
+  --color-mint:      #2EC99A;
+  --color-mintfaint: #2EC99A18;
+  --color-ember:     #E05A5A;
+  --color-emberfaint:#E05A5A18;
+  --color-amber:     #E0A030;
+  --color-amberfaint:#E0A03018;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* custom Animations */
+  --animate-rise:    rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade:    fade 0.4s ease both;
+  --animate-shimmer: shimmer 1.8s linear infinite;
+  --animate-float:   float 4s ease-in-out infinite;
+  --animate-spin-slow: spin 1.4s linear infinite;
+  --animate-pulse-gold: pulse-gold 2.5s ease-in-out infinite;
+  --animate-scan:    scan 0.5s ease both;
+}
+
+/*  KEYFRAMES */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -300% center; }
+  100% { background-position: 300% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-10px); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 #D4A84340; }
+  50%      { box-shadow: 0 0 28px 4px #D4A84340; }
+}
+
+@keyframes scan {
+  from { opacity: 0; transform: scaleX(0); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+/* BASE STYLES */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-chalk);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-deep); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-golddim);
+  border-radius: 99px;
+}
+
+/* UTILITY CLASSES */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 25%,
+    var(--color-elevated) 50%,
+    var(--color-surface) 75%
+  );
+  background-size: 300% 100%;
+  animation: var(--animate-shimmer);
+  border-radius: 10px;
+}
+
+/* film grain noise texture */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  z-index: 9999;
+}
+
+.card-hover {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.card-hover:hover {
+  border-color: var(--color-rimhover);
+  box-shadow: 0 0 0 1px var(--color-rimhover), 0 20px 60px -10px #00000080;
+  transform: translateY(-2px);
+}
+
+/* animation delay helpers */
+.d-1 { animation-delay: 80ms;  }
+.d-2 { animation-delay: 160ms; }
+.d-3 { animation-delay: 240ms; }
+.d-4 { animation-delay: 320ms; }
+.d-5 { animation-delay: 400ms; }
+.d-6 { animation-delay: 480ms; }
+.d-7 { animation-delay: 560ms; }
+
+/* Default opacity 0 for rise animation (filled by animation) */
+.rise { opacity: 0; animation: var(--animate-rise); }
