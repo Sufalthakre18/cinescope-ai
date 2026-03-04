@@ -23,7 +23,7 @@ function Avatar({ name, index }) {
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--color-rim)")}
     >
       <div
-        className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold text-white"
+        className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold text-white"
         style={{ background: `linear-gradient(135deg, ${a}, ${b})` }}
       >
         {initials}

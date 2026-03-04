@@ -35,7 +35,7 @@ function Row({ label, value }) {
   return (
     <div className="flex gap-3">
       <span
-        className="text-xs uppercase tracking-wide w-20 flex-shrink-0 pt-0.5"
+        className="text-xs uppercase tracking-wide w-20 shrink-0 pt-0.5"
         style={{ color: "var(--color-slate)" }}
       >
         {label}
@@ -65,7 +65,7 @@ export default function MovieCard({ movie, insights, insightsLoading }) {
 
         <div className="relative z-10 flex flex-col md:flex-row gap-8">
           
-          <div className="flex-shrink-0 mx-auto md:mx-0">
+          <div className="shrink-0 mx-auto md:mx-0">
             <div className="relative animate-float">
               {movie.poster ? (
                 <Image
@@ -82,7 +82,7 @@ export default function MovieCard({ movie, insights, insightsLoading }) {
                 />
               ) : (
                 <div
-                  className="w-[210px] h-[315px] rounded-2xl flex flex-col items-center justify-center gap-3 border"
+                  className="`w-52.5 h-78.75 rounded-2xl flex flex-col items-center justify-center gap-3 border"
                   style={{
                     backgroundColor: "var(--color-void)",
                     borderColor:     "var(--color-rim)",

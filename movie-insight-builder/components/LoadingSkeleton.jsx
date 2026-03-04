@@ -7,7 +7,7 @@ export default function LoadingSkeleton() {
         style={{ backgroundColor: "var(--color-surface)", borderColor: "var(--color-rim)" }}
       >
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="skeleton w-56 h-80 rounded-2xl flex-shrink-0 mx-auto md:mx-0" />
+          <div className="skeleton w-56 h-80 rounded-2xl shrink-0 mx-auto md:mx-0" />
           <div className="flex-1 space-y-4 pt-2">
             <div className="skeleton h-9 w-3/4 rounded-xl" />
             <div className="skeleton h-5 w-1/3 rounded-lg" />

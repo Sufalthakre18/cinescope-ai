@@ -45,7 +45,7 @@ export default function SearchForm({ onSearch, loading }) {
             boxShadow:   focused ? "0 0 0 3px var(--color-goldfaint)" : "none",
           }}
         >
-          <div className="pl-4 pr-2 flex-shrink-0">
+          <div className="pl-4 pr-2 shrink-0">
             <Clapperboard
               size={18}
               style={{ color: focused ? "var(--color-gold)" : "var(--color-slate)" }}
@@ -70,7 +70,7 @@ export default function SearchForm({ onSearch, loading }) {
           <button
             type="submit"
             disabled={loading}
-            className="m-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 flex items-center gap-2 flex-shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="m-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-200 flex items-center gap-2 shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
             style={{ backgroundColor: "var(--color-gold)", color: "var(--color-void)" }}
           >
             {loading ? (
@@ -96,7 +96,7 @@ export default function SearchForm({ onSearch, loading }) {
 
         {err && (
           <p className="mt-2 ml-1 text-xs font-medium flex items-center gap-1.5" style={{ color: "var(--color-ember)" }}>
-            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: "var(--color-ember)" }} />
+            <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: "var(--color-ember)" }} />
             {err}
           </p>
         )}

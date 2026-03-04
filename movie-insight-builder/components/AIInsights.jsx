@@ -120,7 +120,7 @@ export default function AIInsights({ insights, loading }) {
           <ul className="space-y-1.5">
             {insights.standoutAspects.map((a, i) => (
               <li key={i} className="flex items-start gap-2 text-xs" style={{ color: "var(--color-silver)" }}>
-                <span className="mt-0.5 flex-shrink-0" style={{ color: "var(--color-gold)" }}>
+                <span className="mt-0.5 shrink-0" style={{ color: "var(--color-gold)" }}>
                   ✦
                 </span>
                 {a}
